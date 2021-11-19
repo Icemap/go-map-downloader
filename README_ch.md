@@ -2,43 +2,43 @@
 
 ![build_badge](https://github.com/Icemap/go-map-downloader/workflows/Go/badge.svg)
 
-English | [中文](README_ch.md)
+[English](README.md) | 中文
 
-Map downloader for golang. It supports multiple map type:
+Golang编写的地图下载器. 支持多种地图类型:
 
-- google satellite
-- google image
-- google terrain
-- amap satellite
-- amap cover
-- amap image
+- 谷歌卫星图
+- 谷歌标准地图
+- 谷歌地形图
+- 高德卫星图
+- 高德覆盖层图
+- 高德标准地图
 
-## Feature
+## 功能
 
-- Download map tile picture
-- Combine tile to a big map
+- 下载地图瓦片
+- 拼接瓦片为大地图
 
-## Install
+## 安装
 
 ```bash
 $ go get -u github.com/Icemap/go-map-downloader
 ```
 
-## Example
+## 🌰例子
 
-### google satellite
+### 谷歌卫星图
 ```bash
 $ ./go-map-downloader -l 139.278433 -t 35.968355 -r 140.506452 -b 35.427143 -min 11 -max 11 -type GoogleSatellite
 ```
 ![google satellite](pic/google_satellite_level_11.jpg)
 
-### amap image
+### 高德标准地图
 ```bash
 $ ./go-map-downloader -l 139.278433 -t 35.968355 -r 140.506452 -b 35.427143 -min 11 -max 11 -type AMapImage
 ```
 ![amap_image](pic/amap_image_level_11.jpg)
 
-### help
+### 帮助
 ```bash
 $ ./go-map-downloader -h
 Usage of ./go-map-downloader:

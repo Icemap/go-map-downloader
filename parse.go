@@ -29,7 +29,7 @@ type MapConfig struct {
 	MinLevel int
 	// MaxLevel map max level
 	MaxLevel int
-	// MapType only in GoogleSatellite / GoogleImage / GoogleTerrain / AMapSatellite / AMapCover / AMapImage / TianDiTuSatellite / TianDiTuImage / TianDiTuCover
+	// MapType only in GoogleSatellite / GoogleImage / GoogleTerrain / AMapSatellite / AMapCover / AMapImage
 	MapType string
 
 	// Retry
