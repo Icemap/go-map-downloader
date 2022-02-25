@@ -1,1 +1,3 @@
-./go-map-downloader
+go-map-downloader
+./bin/
+go.sum

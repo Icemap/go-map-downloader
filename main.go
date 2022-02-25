@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/Icemap/coordinate"
 	"github.com/cheggaaa/pb/v3"
 	"github.com/panjf2000/ants/v2"
 	"math"
@@ -14,15 +15,15 @@ import (
 )
 
 type Task struct {
-	err error
-	x int
-	y int
-	z int
+	err      error
+	x        int
+	y        int
+	z        int
 	retryNum int
-	config MapConfig
+	config   MapConfig
 }
 
-func main()  {
+func main() {
 	mask := syscall.Umask(0)
 	defer syscall.Umask(mask)
 
@@ -31,8 +32,15 @@ func main()  {
 
 	fmt.Println("start calculate...")
 	// calculate
-	leftTop := LonLatToGoogleMercator(config.LeftLongitude, config.TopLatitude)
-	rightBottom := LonLatToGoogleMercator(config.RightLongitude, config.BottomLatitude)
+	leftTop, err := coordinate.Convert(coordinate.WGS84, coordinate.WebMercator, coordinate.Coordinate{X: config.LeftLongitude, Y: config.TopLatitude})
+	if err != nil {
+		panic(fmt.Errorf("left top error: %+v", err))
+	}
+
+	rightBottom, err := coordinate.Convert(coordinate.WGS84, coordinate.WebMercator, coordinate.Coordinate{X: config.RightLongitude, Y: config.BottomLatitude})
+	if err != nil {
+		panic(fmt.Errorf("right bottom error: %+v", err))
+	}
 
 	fmt.Printf("leftTop: %+v, rightBottom: %+v\n", leftTop, rightBottom)
 
@@ -51,7 +59,7 @@ func main()  {
 	bar := pb.StartNew(totalTask)
 	var wg sync.WaitGroup
 
-	pool, _ := ants.NewPoolWithFunc(config.GoroutineNum, func (iTask interface{}) {
+	pool, _ := ants.NewPoolWithFunc(config.GoroutineNum, func(iTask interface{}) {
 		defer func() {
 			wg.Done()
 			bar.Increment()
@@ -76,20 +84,20 @@ func main()  {
 		topTileY := int(leftTop.Y / perTileWidth)
 		bottomTileY := int(rightBottom.Y / perTileWidth)
 
-		currentTask ++
-		if currentTask % config.QPS == 0 {
+		currentTask++
+		if currentTask%config.QPS == 0 {
 			time.Sleep(time.Second)
 		}
 
-		for x := leftTileX; x <= rightTileX; x ++ {
-			for y := topTileY; y <= bottomTileY; y ++ {
+		for x := leftTileX; x <= rightTileX; x++ {
+			for y := topTileY; y <= bottomTileY; y++ {
 				wg.Add(1)
 				pool.Invoke(Task{
 					x:        x,
 					y:        y,
 					z:        z,
 					retryNum: 0,
-					config: config,
+					config:   config,
 				})
 			}
 		}
