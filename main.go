@@ -46,7 +46,7 @@ func main() {
 
 	totalTask := 0
 	for z := config.MinLevel; z <= config.MaxLevel; z++ {
-		perTileWidth := WebMercatorWidth / math.Pow(2, float64(z))
+		perTileWidth := coordinate.WebMercatorWidth / math.Pow(2, float64(z))
 		leftTileX := int(leftTop.X / perTileWidth)
 		rightTileX := int(rightBottom.X / perTileWidth)
 		topTileY := int(leftTop.Y / perTileWidth)
@@ -78,7 +78,7 @@ func main() {
 
 	currentTask := 0
 	for z := config.MinLevel; z <= config.MaxLevel; z++ {
-		perTileWidth := WebMercatorWidth / math.Pow(2, float64(z))
+		perTileWidth := coordinate.WebMercatorWidth / math.Pow(2, float64(z))
 		leftTileX := int(leftTop.X / perTileWidth)
 		rightTileX := int(rightBottom.X / perTileWidth)
 		topTileY := int(leftTop.Y / perTileWidth)
@@ -112,7 +112,7 @@ func main() {
 		return
 	}
 	for z := config.MinLevel; z <= config.MaxLevel; z++ {
-		perTileWidth := WebMercatorWidth / math.Pow(2, float64(z))
+		perTileWidth := coordinate.WebMercatorWidth / math.Pow(2, float64(z))
 		leftTileX := int(leftTop.X / perTileWidth)
 		rightTileX := int(rightBottom.X / perTileWidth)
 		topTileY := int(leftTop.Y / perTileWidth)
