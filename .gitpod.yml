@@ -10,4 +10,4 @@ tasks:
     command: |
       clear
       go mod tidy
-      go build bin/go-map-downloader
+      go build -o bin/go-map-downloader
