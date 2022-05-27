@@ -20,6 +20,24 @@ Map downloader for golang. It supports multiple map type:
 
 ## Install
 
+### Gitpod (recommended)
+
+[![gitpod_badge](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://gitpod.io/#https://github.com/Icemap/go-map-downloader)
+
+You can open this project on Gitpod by clicking above. Gitpod is a complete cloud development environment that you can use as a remote VSCode. This allows you to not need to configure your local environment.
+
+Because the compile command is already run, you can use the binary directly: `bin/go-map-downloader` . Try running:
+
+```bash
+./bin/go-map-downloader -l 139.278433 -t 35.968355 -r 140.506452 -b 35.427143 -min 11 -max 11 -type GoogleSatellite -p bin/save
+```
+
+The results:
+
+![gitpod_result](./pic/gitpod.png)
+
+### Local installation
+
 ```bash
 $ go get -u github.com/Icemap/go-map-downloader
 ```
