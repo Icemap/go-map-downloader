@@ -6,7 +6,8 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Open Target File
+  - name: Build
     command: |
       clear
-      go build go-map-downloader
+      go mod tidy
+      go build bin/go-map-downloader
