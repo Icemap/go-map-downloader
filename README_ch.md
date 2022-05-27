@@ -39,26 +39,31 @@ Golang编写的地图下载器. 支持多种地图类型:
 ### 本地安装
 
 ```bash
-$ go get -u github.com/Icemap/go-map-downloader
+go get -u github.com/Icemap/go-map-downloader
 ```
 
 ## 🌰例子
 
 ### 谷歌卫星图
+
 ```bash
-$ ./go-map-downloader -l 139.278433 -t 35.968355 -r 140.506452 -b 35.427143 -min 11 -max 11 -type GoogleSatellite
+./go-map-downloader -l 139.278433 -t 35.968355 -r 140.506452 -b 35.427143 -min 11 -max 11 -type GoogleSatellite
 ```
+
 ![google satellite](pic/google_satellite_level_11.jpg)
 
 ### 高德标准地图
+
 ```bash
-$ ./go-map-downloader -l 139.278433 -t 35.968355 -r 140.506452 -b 35.427143 -min 11 -max 11 -type AMapImage
+./go-map-downloader -l 139.278433 -t 35.968355 -r 140.506452 -b 35.427143 -min 11 -max 11 -type AMapImage
 ```
+
 ![amap_image](pic/amap_image_level_11.jpg)
 
 ### 帮助
-```bash
-$ ./go-map-downloader -h
+
+```
+./go-map-downloader -h
 Usage of ./go-map-downloader:
   -b float
         bottom latitude
