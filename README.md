@@ -22,7 +22,7 @@ Map downloader for golang. It supports multiple map type:
 
 ### Gitpod (recommended)
 
-[![gitpod_badge](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://gitpod.io/#https://github.com/Icemap/go-map-downloader)
+[![gitpod_badge](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Icemap/go-map-downloader)
 
 You can open this project on Gitpod by clicking above. Gitpod is a complete cloud development environment that you can use as a remote VSCode. This allows you to not need to configure your local environment.
 

@@ -22,7 +22,7 @@ Golang编写的地图下载器. 支持多种地图类型:
 
 ### Gitpod（推荐）
 
-[![gitpod_badge](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://gitpod.io/#https://github.com/Icemap/go-map-downloader)
+[![gitpod_badge](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Icemap/go-map-downloader)
 
 你可以点击上方，在 Gitpod 中打开这个项目。Gitpod 是一个完整的云开发环境，你可以把它当作是远程的 VSCode 来使用。这使得你无需配置本地环境（而且这个环境是翻了墙的）。
 
