@@ -1,5 +1,5 @@
-github.com/Icemap/coordinate v1.0.0 h1:e7nyQRWAVclubA9reJpcpbG+E8l21taGGo+V20nifS8=
-github.com/Icemap/coordinate v1.0.0/go.mod h1:eAieW0D6eSbf9b16QTQEhxURfnXw5fQLfIBX1zNYxgY=
+github.com/Icemap/coordinate v1.0.1 h1:6dZDi4UKhgM3D/PIEoSgXUsmCWe7WY97QPcXEVlq2tQ=
+github.com/Icemap/coordinate v1.0.1/go.mod h1:eAieW0D6eSbf9b16QTQEhxURfnXw5fQLfIBX1zNYxgY=
 github.com/VividCortex/ewma v1.1.1/go.mod h1:2Tkkvm3sRDVXaiyucHiACn4cqf7DpdyLvmxzcbUokwA=
 github.com/VividCortex/ewma v1.2.0 h1:f58SaIzcDXrSy3kWaHNvuJgJ3Nmz59Zji6XoJR/q1ow=
 github.com/VividCortex/ewma v1.2.0/go.mod h1:nz4BbCtbLyFDeC9SUHbtcT5644juEuWfUAUnGx7j5l4=

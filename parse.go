@@ -31,6 +31,8 @@ type MapConfig struct {
 	MaxLevel int
 	// MapType only in GoogleSatellite / GoogleImage / GoogleTerrain / AMapSatellite / AMapCover / AMapImage
 	MapType string
+	// GoogleWithLabel only effect when the MapType is GoogleSatellite / GoogleImage / GoogleTerrain
+	GoogleWithLabel bool
 
 	// Retry
 
@@ -56,6 +58,8 @@ func parseMapConfig() MapConfig {
 	flag.IntVar(&conf.MaxLevel, "max", 3, "map max level")
 
 	flag.StringVar(&conf.MapType, "type", "GoogleSatellite", "map type (GoogleSatellite/GoogleImage/GoogleTerrain/AMapSatellite/AMapCover/AMapImage)")
+	flag.BoolVar(&conf.GoogleWithLabel, "google-label", true, "only effect when the map type is GoogleSatellite / GoogleImage / GoogleTerrain")
+
 	flag.IntVar(&conf.MaxRetryNum, "retry", 3, "max retry num")
 
 	// parse
@@ -63,4 +67,3 @@ func parseMapConfig() MapConfig {
 
 	return conf
 }
-

@@ -132,9 +132,9 @@ func getPic(task Task) error {
 	}
 
 	filePath := getPath(task.config, task.x, task.y, task.z)
-	url := coordinate.WebMercatorTileToURL(task.config.MapType, task.x, task.y, task.z)
+	url := coordinate.WebMercatorTileToURLWithTiltStyle(task.config.MapType, task.x, task.y, task.z,
+		coordinate.TiltStyle{GoogleWithLabel: task.config.GoogleWithLabel})
 
-	// fmt.Printf("save pic x: %d, y: %d, z: %d, url: %s, path: %s\n", task.x, task.y, task.z, url, filePath)
 	return Download(url, filePath)
 }
 
