@@ -52,6 +52,16 @@ go get -u github.com/Icemap/go-map-downloader
 
 ![google satellite](pic/google_satellite_level_11.jpg)
 
+> **Note:**
+>
+> You can use the `google-label` parameter to control if hide labels in Google type maps.  
+>
+> ```
+> ./go-map-downloader -l 139.278433 -t 35.968355 -r 140.506452 -b 35.427143 -min 11 -max 11 -type GoogleSatellite -google-label=false
+> ```
+>
+> Please notice that the parameter `google-label` will affect Google type only.
+
 ### amap image
 
 ```bash
@@ -70,6 +80,8 @@ Usage of ./go-map-downloader:
   -c    combine same level map together (default true)
   -g int
         goroutine nums (default 50)
+  -google-label
+        only effect when the map type is GoogleSatellite / GoogleImage / GoogleTerrain (default true)
   -l float
         left longitude
   -max int

@@ -52,6 +52,16 @@ go get -u github.com/Icemap/go-map-downloader
 
 ![google satellite](pic/google_satellite_level_11.jpg)
 
+> **Note:**
+>
+> 你可以使用 `google-label` 参数控制是否隐藏 Google 类型地图的标签。如：
+> 
+> ```
+> ./go-map-downloader -l 139.278433 -t 35.968355 -r 140.506452 -b 35.427143 -min 11 -max 11 -type GoogleSatellite -google-label=false
+> ```
+> 
+> 请注意 `google-label` 标签仅在 Google 类型地图中有效。
+
 ### 高德标准地图
 
 ```bash
@@ -70,6 +80,8 @@ Usage of ./go-map-downloader:
   -c    combine same level map together (default true)
   -g int
         goroutine nums (default 50)
+  -google-label
+        only effect when the map type is GoogleSatellite / GoogleImage / GoogleTerrain (default true)
   -l float
         left longitude
   -max int
