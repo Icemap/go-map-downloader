@@ -122,6 +122,13 @@ func main() {
 		if err != nil {
 			fmt.Printf("combine pic error: %+v\n", err)
 		}
+
+		if config.Clip {
+			err = clipRegion(leftTileX, rightTileX, topTileY, bottomTileY, z, perTileWidth, config, leftTop, rightBottom)
+			if err != nil {
+				fmt.Printf("clip pic error: %+v\n", err)
+			}
+		}
 	}
 }
 
@@ -148,4 +155,21 @@ func getCombinePicPath(config MapConfig, z int) string {
 	return strings.Join([]string{
 		config.SavePath, config.MapType, "level_" + strconv.Itoa(z),
 	}, string(filepath.Separator)) + ".jpg"
+}
+
+func getClippedPicPath(config MapConfig, z int) string {
+	return strings.Join([]string{
+		config.SavePath, config.MapType, "level_" + strconv.Itoa(z),
+	}, string(filepath.Separator)) + ".clipped.jpg"
+}
+
+func clipRegion(xMin, xMax, yMin, yMax, z int, perTileWidth float64, config MapConfig, leftTop, rightBottom coordinate.Coordinate) error {
+	dx := float64(xMax-xMin+1) * perTileWidth
+	dy := float64(yMax-yMin+1) * perTileWidth
+	xMinRatio := (leftTop.X - float64(xMin)*perTileWidth) / dx
+	xMaxRatio := (rightBottom.X - float64(xMin)*perTileWidth) / dx
+	yMinRatio := (leftTop.Y - float64(yMin)*perTileWidth) / dy
+	yMaxRatio := (rightBottom.Y - float64(yMin)*perTileWidth) / dy
+
+	return clip(xMinRatio, xMaxRatio, yMinRatio, yMaxRatio, z, config)
 }

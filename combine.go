@@ -32,3 +32,27 @@ func combine(xMin, xMax, yMin, yMax, z int, config MapConfig) error {
 	}
 	return nil
 }
+
+func clip(xMinRatio, xMaxRatio, yMinRatio, yMaxRatio float64, z int, config MapConfig) error {
+	fmt.Println(getClippedPicPath(config, z))
+
+	im, err := gg.LoadImage(getCombinePicPath(config, z))
+	if err != nil {
+		return err
+	}
+
+	size := im.Bounds().Size()
+	imageWidth := float64(size.X)
+	imageHeight := float64(size.Y)
+	canvasWidth := int((xMaxRatio - xMinRatio) * imageWidth)
+	canvasHeight := int((yMaxRatio - yMinRatio) * imageHeight)
+
+	overview := gg.NewContext(canvasWidth, canvasHeight)
+	overview.DrawImageAnchored(im, 0, 0, xMinRatio, yMinRatio)
+
+	err = overview.SavePNG(getClippedPicPath(config, z))
+	if err != nil {
+		return err
+	}
+	return nil
+}

@@ -12,6 +12,8 @@ type MapConfig struct {
 	SavePath string
 	// Combine put same level map together
 	Combine bool
+	// Whether to clip input region from the result image
+	Clip bool
 	// QPS query file speed per second
 	QPS int
 
@@ -48,6 +50,7 @@ func parseMapConfig() MapConfig {
 	flag.StringVar(&conf.SavePath, "p", "/tmp", "map save path")
 	flag.IntVar(&conf.GoroutineNum, "g", 50, "goroutine nums")
 	flag.BoolVar(&conf.Combine, "c", true, "combine same level map together")
+	flag.BoolVar(&conf.Clip, "clip", false, "clip input region from the result image")
 	flag.IntVar(&conf.QPS, "q", 500, "query file per second number")
 
 	flag.Float64Var(&conf.LeftLongitude, "l", 0, "left longitude")
